@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -87,6 +88,7 @@ const SIDEBAR_CHANNELS = [
 ];
 
 const Index = () => {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('home');
   const [searchQuery, setSearchQuery] = useState('');
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -243,6 +245,7 @@ const Index = () => {
                 <div
                   key={video.id}
                   className="group cursor-pointer animate-fade-in"
+                  onClick={() => navigate(`/watch?v=${video.id}`)}
                 >
                   <div className="relative rounded-xl overflow-hidden mb-3">
                     <img
